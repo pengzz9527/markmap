@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Markmap Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
+  </head>
+  <body>
+    <h1>Markmap 思维导图</h1>
+    <svg id="mindmap"></svg>
+    <script>
+      window.markmap = {
+        autoLoader: {
+          manual: true,
+        },
+      };
+      markmap.autoLoader.load(() => {
+        const { markmap } = window;
+        const content = `
+# Cloudflare + Markmap 演示
+- 使用 CDN 快速渲染
+- 支持 Markdown
+- 可部署在 Cloudflare Pages
+        `;
+        markmap.Markmap.create("#mindmap", null, content);
+      });
+    </script>
+  </body>
+</html>
